@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import Links from '../api/links';
+import Students from '../api/students';
 
 class Info extends Component {
   render() {
-    const links = this.props.links.map(
-      link => this.makeLink(link)
+    const students = this.props.students.map(
+      student => this.getStudentLi(student)
     );
 
     return (
       <div>
-        <h2>Learn Meteor!</h2>
-        <ul>{ links }</ul>
+        <h1>My student list :)</h1>
+        <ul>{ students }</ul>
       </div>
     );
   }
 
-  makeLink(link) {
+  getStudentLi(student) {
     return (
-      <li key={link._id}>
-        <a href={link.url} target="_blank">{link.title}</a>
+      <li key={student._id}>
+        {student.name}
       </li>
     );
   }
@@ -27,6 +27,6 @@ class Info extends Component {
 
 export default InfoContainer = withTracker(() => {
   return {
-    links: Links.find().fetch(),
+    students: Students.find().fetch(),
   };
 })(Info);
