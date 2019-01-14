@@ -1,10 +1,11 @@
 import React from 'react';
 import Students from './Students.jsx';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const App = () => (
-  <div>
-    <Students />
-  </div>
+  <Router>
+    <Route path="/" exact component={Students} />
+  </Router>
 );
 
 export default App;
