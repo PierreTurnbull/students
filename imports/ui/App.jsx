@@ -1,10 +1,14 @@
 import React from 'react';
-import Students from './Students.jsx';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Students from './components/Students.jsx';
+import NotFound from './components/NotFound.jsx';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => (
   <Router>
-    <Route path="/" exact component={Students} />
+    <Switch>
+      <Route path="/" exact component={Students} />
+      <Route component={NotFound} />
+    </Switch>
   </Router>
 );
 
