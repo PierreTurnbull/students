@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import Students from '../api/students';
+import StudentsData from '../../../api/students';
 
-class Info extends Component {
+class Students extends Component {
   render() {
     const students = this.props.students.map(
       student => this.getStudentLi(student)
@@ -25,8 +25,8 @@ class Info extends Component {
   }
 }
 
-export default InfoContainer = withTracker(() => {
+export default StudentsContainer = withTracker(() => {
   return {
-    students: Students.find().fetch(),
+    students: StudentsData.find().fetch(),
   };
-})(Info);
+})(Students);
