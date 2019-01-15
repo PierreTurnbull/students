@@ -7,10 +7,7 @@ class CreateStudent extends Component {
   createStudent (data) {
     Meteor.call('createStudent', {
       name: data.studentName
-    }, (error) => {
-      console.log(error ? `Failed to create student` : `Created student`, error)
-    });
-    console.log('create!', data)
+    })
   }
 
   render () {

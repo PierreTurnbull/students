@@ -25,6 +25,7 @@ class Input extends Component {
           value={this.props.value}
           placeholder={this.props.placeholder}
           ref={this.state.refName} />
+        {this.props.validationError && <p>Error: {this.props.validationError}</p>}
       </div>
     )
   }
@@ -35,7 +36,8 @@ Input.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  validationError: PropTypes.string
 }
 
 export default Input

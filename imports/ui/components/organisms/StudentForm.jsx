@@ -5,20 +5,29 @@ import PropTypes from 'prop-types';
 
 class StudentForm extends Component {
   constructor () {
-    super()
+    super();
     this.state = {
       studentName: '',
+      errorMsg: null
     }
   }
 
-  submitForm = () => {
-    this.props.handler({ studentName: this.state.studentName })
+  submitForm = async () => {
+    await this.validateForm()
+    !this.state.errorMsg && this.props.handler({ studentName: this.state.studentName })
     this.setState({ studentName: '' })
   }
 
   handleChange (field, value) {
     this.setState({
       [field]: value
+    })
+  }
+
+  validateForm = () => {
+    return this.setState({ errorMsg: !this.state.studentName
+      ? 'Name is required !'
+      : null
     })
   }
 
@@ -29,7 +38,8 @@ class StudentForm extends Component {
           label='Name:'
           name='name'
           value={this.state.studentName}
-          onChange={(data) => (this.handleChange('studentName', data))} />
+          onChange={(data) => (this.handleChange('studentName', data))}
+          validationError={this.state.errorMsg} />
         <Button type='submit' handler={this.submitForm}/>
       </form>
     )
