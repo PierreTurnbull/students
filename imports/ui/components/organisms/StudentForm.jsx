@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../molecules/Input.jsx';
 import Button from '../molecules/Button.jsx';
-import StudentsCollection from '../../../api/students';
+import PropTypes from 'prop-types';
 
 class StudentForm extends Component {
   constructor () {
@@ -12,14 +12,9 @@ class StudentForm extends Component {
   }
 
   submitForm = () => {
-    StudentsCollection.insert({
-      name: this.state.studentName,
-      createdAt: new Date()
-    })
-    this.setState({
-      studentName: ''
-    })
-  } // next step: créer un middleware dans le back pour intégrer le createdAt systématiquement au insert.
+    this.props.handler({ studentName: this.state.studentName })
+    this.setState({ studentName: '' })
+  }
 
   handleChange (field, value) {
     this.setState({
@@ -31,8 +26,7 @@ class StudentForm extends Component {
     return (
       <form>
         <Input
-          label='Name'
-          placeholder='Write here'
+          label='Name:'
           name='name'
           value={this.state.studentName}
           onChange={(data) => (this.handleChange('studentName', data))} />
@@ -40,6 +34,10 @@ class StudentForm extends Component {
       </form>
     )
   }
+}
+
+StudentForm.propTypes = {
+  handler: PropTypes.func.isRequired
 }
 
 export default StudentForm;

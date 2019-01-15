@@ -17,7 +17,7 @@ class Input extends Component {
   render () {
     return (
       <div>
-        <label>{this.props.label}</label>
+        {this.props.label && <label>{this.props.label}</label>}
         <input
           type='text'
           name={this.props.name}

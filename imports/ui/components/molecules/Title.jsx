@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Title extends Component {
   render () {
-    const H = `h${this.props.hLevel || 1}`
+    const H = `h${this.props.level || 1}`
     return (
       <H>
         { this.props.children }
@@ -12,7 +12,7 @@ class Title extends Component {
 }
 
 Title.propTypes = {
-  hLevel: (props, propName) => {
+  level: (props, propName) => {
     const prop = props[propName]
     if (prop === null || prop === undefined) {
       return
