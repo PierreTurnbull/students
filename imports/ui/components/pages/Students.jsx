@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import StudentsData from '../../../api/students';
+import StudentsCollection from '../../../api/students';
 
 class Students extends Component {
   render() {
@@ -27,6 +27,6 @@ class Students extends Component {
 
 export default StudentsContainer = withTracker(() => {
   return {
-    students: StudentsData.find().fetch(),
+    students: StudentsCollection.find().fetch(),
   };
 })(Students);

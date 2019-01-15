@@ -12,7 +12,7 @@ class Button extends Component {
       <input
         type={this.props.type === 'submit' ? 'submit' : 'button'}
         onClick={() => (this.handleClick(event))}
-        value='valider' />
+        value='Submit' />
     )
   }
 }

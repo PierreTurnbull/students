@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../molecules/Input.jsx';
 import Button from '../molecules/Button.jsx';
+import StudentsCollection from '../../../api/students';
 
 class StudentForm extends Component {
   constructor () {
@@ -8,14 +9,21 @@ class StudentForm extends Component {
     this.state = {
       studentName: '',
     }
-    this.refName = React.createRef()
   }
 
   submitForm = () => {
+    StudentsCollection.insert({
+      name: this.state.studentName,
+      createdAt: new Date()
+    })
     this.setState({
-      studentName: this.refName.current.value
-    }, () => {
-      // Persist
+      studentName: ''
+    })
+  } // next step: créer un middleware dans le back pour intégrer le createdAt systématiquement au insert.
+
+  handleChange (field, value) {
+    this.setState({
+      [field]: value
     })
   }
 
@@ -24,9 +32,10 @@ class StudentForm extends Component {
       <form>
         <Input
           label='Name'
-          placeholder='Student name'
+          placeholder='Write here'
           name='name'
-          refName={this.refName} />
+          value={this.state.studentName}
+          onChange={(data) => (this.handleChange('studentName', data))} />
         <Button type='submit' handler={this.submitForm}/>
       </form>
     )

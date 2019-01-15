@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 class Input extends Component {
-  constructor(props){
+  constructor (props) {
     super(props)
     this.state = {
-      value: ''
+      refName: this.props.name
     }
   }
 
-  changeHandler = e => {
-    this.setState({
-      value: e.target.value
-    })
+  handleChange = () => {
+    const newValue = this.refs[this.state.refName].value
+    this.props.onChange && this.props.onChange(newValue)
   }
 
   render () {
@@ -20,22 +19,23 @@ class Input extends Component {
       <div>
         <label>{this.props.label}</label>
         <input
-          type="text"
-          ref={this.props.refName}
+          type='text'
           name={this.props.name}
-          onChange={this.changeHandler}
-          value={this.state.value}
-          placeholder={this.state.placeholder} />
+          onChange={this.handleChange}
+          value={this.props.value}
+          placeholder={this.props.placeholder}
+          ref={this.state.refName} />
       </div>
     )
   }
 }
 
 Input.propTypes = {
-  refName: PropTypes.object.isRequired,
   name: PropTypes.string,
   label: PropTypes.string,
-  placeholder: PropTypes.string
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 export default Input
