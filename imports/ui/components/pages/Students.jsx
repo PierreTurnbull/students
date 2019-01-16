@@ -21,6 +21,14 @@ class Students extends Component {
     return (
       <li key={student._id}>
         <Link to={`${this.props.match.path}/${student._id}`}>{student.name}</Link>
+        <a style={
+          {
+            fontSize: '10px',
+            textDecoration: 'underline',
+            cursor: 'pointer',
+            marginLeft: '10px'
+          }}
+          onClick={() => Meteor.call('deleteStudent', { _id: student._id})}>delete</a>
       </li>
     );
   }

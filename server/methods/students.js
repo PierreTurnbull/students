@@ -20,3 +20,9 @@ Meteor.methods({
     })
   }
 })
+
+Meteor.methods({
+  deleteStudent: function ({ _id }) {
+    Students.remove({ _id })
+  }
+})
