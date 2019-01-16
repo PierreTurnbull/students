@@ -5,7 +5,7 @@ const Nav = () => (
   <header>
     <nav>
       <ul>
-        <li><Link to='/'>Student list</Link></li>
+        <li><Link to='/students'>Student list</Link></li>
         <li><Link to='/create'>Create a student</Link></li>
       </ul>
     </nav>
