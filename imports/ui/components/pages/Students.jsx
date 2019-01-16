@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import StudentsCollection from '../../../api/students';
+import { Link } from 'react-router-dom';
 
 class Students extends Component {
   render() {
@@ -19,7 +20,7 @@ class Students extends Component {
   getStudentLi(student) {
     return (
       <li key={student._id}>
-        {student.name}
+        <Link to={`${this.props.match.path}/${student._id}`}>{student.name}</Link>
       </li>
     );
   }

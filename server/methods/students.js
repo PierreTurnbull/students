@@ -9,3 +9,14 @@ Meteor.methods({
     })
   }
 })
+
+Meteor.methods({
+  updateStudent: function ({ _id, name }) {
+    Students.update({ _id }, {
+      $set: {
+        name,
+        updatedAt: new Date().toISOString()
+      }
+    })
+  }
+})

@@ -6,9 +6,9 @@ import Title from '../molecules/Title.jsx';
 class CreateStudent extends Component {
   createStudent = async (data) => {
     await Meteor.call('createStudent', {
-      name: data.studentName
+      name: data.name
     })
-    this.props.history.push('/')
+    this.props.history.push('/students')
   }
 
   render () {
