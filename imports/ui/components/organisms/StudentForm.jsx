@@ -3,6 +3,7 @@ import Input from '../molecules/Input.jsx';
 import Button from '../molecules/Button.jsx';
 import PropTypes from 'prop-types';
 
+
 class StudentForm extends Component {
   constructor () {
     super();
@@ -36,10 +37,11 @@ class StudentForm extends Component {
     return (
       <form>
         <Input
-          label='Name:'
+          label='Name'
           name='name'
           value={this.state.studentName}
           onChange={(data) => (this.handleChange('studentName', data))}
+          placeholder='Ton nom'
           validationError={this.state.errorMsg} />
         <Button type='submit' handler={this.submitForm}/>
       </form>
