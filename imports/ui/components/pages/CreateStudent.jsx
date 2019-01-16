@@ -4,10 +4,11 @@ import StudentForm from '../organisms/StudentForm';
 import Title from '../molecules/Title.jsx';
 
 class CreateStudent extends Component {
-  createStudent (data) {
-    Meteor.call('createStudent', {
+  createStudent = async (data) => {
+    await Meteor.call('createStudent', {
       name: data.studentName
     })
+    this.props.history.push('/')
   }
 
   render () {
