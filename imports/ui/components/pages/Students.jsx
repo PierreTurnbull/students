@@ -11,7 +11,7 @@ class Students extends Component {
     return (
       <div>
         <h1>My student list :)</h1>
-        <ul>{ students }</ul>
+        {students.length ? <ul>{ students }</ul> : <p>No student.</p>}
       </div>
     );
   }

@@ -25,10 +25,11 @@ class StudentForm extends Component {
   }
 
   validateForm = () => {
-    return this.setState({ errorMsg: !this.state.studentName
-      ? 'Name is required !'
-      : null
-    })
+    return this.setState({
+      errorMsg: !this.state.studentName
+        ? 'Name is required !'
+        : null
+      })
   }
 
   render () {
