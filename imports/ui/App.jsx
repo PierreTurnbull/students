@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Nav from './components/layouts/Nav.jsx'
 import AppRouter from './components/router/AppRouter.jsx'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 
-const App = () => (
-  <div>
-    <Router>
+class App extends Component {
+  render () {
+    return (
       <div>
-        <Nav />
-        <AppRouter />
+        <Router>
+          <div>
+            { Meteor.userId() !== null && <Nav /> }
+            <AppRouter />
+          </div>
+        </Router>
       </div>
-    </Router>
-  </div>
-)
+    )
+  }
+}
 
-export default App
+export default AppContainer = withTracker(() => ({ userId: Meteor.userId()}))(App)
