@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import Input from '../molecules/Input.jsx';
 import Button from '../molecules/Button.jsx';
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
 
+const StyledForm = styled.form`
+box-shadow: 0 4px 10px 0 rgba(202, 202, 202, 0.5);
+background-color: #ffffff;
+padding : 16px; 
+border-radius: 8px;
+max-width : 14em;
+`;
 
 class StudentForm extends Component {
   constructor () {
@@ -35,16 +43,16 @@ class StudentForm extends Component {
 
   render () {
     return (
-      <form>
-        <Input
-          label='Name'
-          name='name'
-          value={this.state.studentName}
-          onChange={(data) => (this.handleChange('studentName', data))}
-          placeholder='Ton nom'
-          validationError={this.state.errorMsg} />
-        <Button type='submit' handler={this.submitForm}/>
-      </form>
+          <StyledForm>
+            <Input
+              label='Nom'
+              name='name'
+              value={this.state.studentName}
+              onChange={(data) => (this.handleChange('studentName', data))}
+              placeholder='Ton nom'
+              validationError={this.state.errorMsg} />
+            <Button type='submit' handler={this.submitForm}/>
+        </StyledForm>
     )
   }
 }

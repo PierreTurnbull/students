@@ -15,6 +15,9 @@ const InputStyled = styled.input`
     letter-spacing: normal;
     text-align: left;
     margin : 0 0 16px 0;
+    &:focus{
+        border: 3px solid #488bff;
+    }
 `;
 
 export default InputStyled
