@@ -1,3 +1,3 @@
-import { Mongo } from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo'
 
-export default Students = new Mongo.Collection('students');
+export default Students = new Mongo.Collection('students')
