@@ -9,7 +9,6 @@ box-shadow: 0 4px 10px 0 rgba(202, 202, 202, 0.5);
 background-color: #ffffff;
 padding : 16px; 
 border-radius: 8px;
-max-width : 14em;
 `;
 
 class StudentForm extends Component {
@@ -51,11 +50,10 @@ class StudentForm extends Component {
     return (
           <StyledForm>
             <Input
-              label='Nom'
+              label='Name:'
               name='name'
-              value={this.state.studentName}
-              onChange={(data) => (this.handleChange('studentName', data))}
-              placeholder='Ton nom'
+              value={this.state.student.name}
+              onChange={(data) => (this.handleChange('name', data))}
               validationError={this.state.errorMsg} />
             <Button type='submit' handler={this.submitForm}/>
         </StyledForm>

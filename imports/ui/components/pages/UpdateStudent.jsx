@@ -4,6 +4,8 @@ import StudentForm from '../organisms/StudentForm';
 import Title from '../molecules/Title.jsx';
 import { withTracker } from 'meteor/react-meteor-data';
 import StudentsCollection from '../../../api/students';
+import ContentStyled from '../atoms/Grid/content'
+
 
 class UpdateStudent extends Component {
   updateStudent = async (data) => {
@@ -15,10 +17,10 @@ class UpdateStudent extends Component {
 
   render () {
     return (
-      <div>
+      <ContentStyled>
         <Title level={1}>Update student:</Title>
         <StudentForm handler={this.updateStudent} data={this.props.student} />
-      </div>
+      </ContentStyled>
     );
   }
 }
