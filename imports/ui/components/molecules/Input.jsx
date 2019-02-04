@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import InputStyled from '../atoms/Input/Input'
+import LabelStyled from '../atoms/Label/Label'
 
 class Input extends Component {
   constructor (props) {
@@ -17,8 +19,8 @@ class Input extends Component {
   render () {
     return (
       <div>
-        {this.props.label && <label>{this.props.label}</label>}
-        <input
+        {this.props.label && <LabelStyled>{this.props.label}</LabelStyled>}
+        <InputStyled
           type='text'
           name={this.props.name}
           onChange={this.handleChange}

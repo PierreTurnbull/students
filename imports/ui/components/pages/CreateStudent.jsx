@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor'
 import StudentForm from '../organisms/StudentForm';
 import Title from '../molecules/Title.jsx';
+import ContentStyled from '../atoms/Grid/content'
+
 
 class CreateStudent extends Component {
   createStudent = async (data) => {
@@ -13,10 +15,10 @@ class CreateStudent extends Component {
 
   render () {
     return (
-      <div>
+      <ContentStyled>
         <Title level={1}>Create a new student:</Title>
         <StudentForm handler={this.createStudent} />
-      </div>
+      </ContentStyled>
     );
   }
 }
